@@ -1,11 +1,18 @@
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Layout from "./components/Layout"
+import Home from "./pages/Home"
+import Movies from "./pages/Movies"
 
 function App() {
-
   return (
-    <>
-    <h1>Hello Vite + React!</h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
