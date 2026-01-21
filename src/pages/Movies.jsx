@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; //
 import axios from "axios";
 
 export default function Movies() {
@@ -29,7 +30,10 @@ export default function Movies() {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <strong>{movie.title}</strong> ({movie.release_year}) - {movie.director}
+            {/* Titolo cliccabile che porta alla pagina dettaglio */}
+            <Link to={`/movies/${movie.id}`}>
+              <strong>{movie.title}</strong>
+            </Link> ({movie.release_year}) - {movie.director}
           </li>
         ))}
       </ul>
